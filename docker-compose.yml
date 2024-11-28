@@ -1,5 +1,7 @@
 services:
   playwright-test:
     image: blitzstriker/playwright
+    environment:
+      - TEST_TARGET
     volumes:
       - ./reports:/app/reports

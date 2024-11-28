@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    parameters {
+        choice choices: ['login', 'smoke', 'regression', 'faker'], name: 'TEST_TARGET'
+    }
+
     stages {
 
         stage('Run Test') {
