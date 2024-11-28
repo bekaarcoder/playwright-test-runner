@@ -8,11 +8,12 @@ pipeline {
                 sh "docker-compose up"
             }
         }
+    }
 
-        stage('Bring Container Down') {
-            steps {
-                sh "docker-compose down"
-            }
+    post {
+        always {
+            sh "docker-compose down"
+            archiveArtifacts artifacts: 'reports/*.html, reports/*.json', followSymlinks: false
         }
     }
 }
