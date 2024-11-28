@@ -1,0 +1,5 @@
+services:
+  playwright-test:
+    image: blitzstriker/playwright
+    volumes:
+      - ./reports:/app/reports
