@@ -11,6 +11,12 @@ pipeline {
         stage('Run Test') {
             steps {
                 sh "docker-compose up"
+                script {
+                    def rerunExists = sh(script: '[ -f reports/rerun.txt ] && [ -s reports/rerun.txt ]', returnStatus: true) == 0
+                    if(rerunExists) {
+                        error("Some tests failed.")
+                    }
+                }
             }
         }
     }
