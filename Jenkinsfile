@@ -3,6 +3,7 @@ pipeline {
 
     parameters {
         choice choices: ['login', 'smoke', 'regression', 'faker'], name: 'TEST_TARGET'
+        choice choices: ['chromium', 'firefox'], name: 'BROWSER_CHOICE'
     }
 
     stages {

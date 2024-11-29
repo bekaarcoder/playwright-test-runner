@@ -3,5 +3,6 @@ services:
     image: blitzstriker/playwright
     environment:
       - TEST_TARGET
+      - BROWSER_CHOICE
     volumes:
       - ./reports:/app/reports
