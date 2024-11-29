@@ -10,7 +10,7 @@ pipeline {
 
         stage('Run Test') {
             steps {
-                sh "docker-compose up"
+                sh "docker-compose up --pull=always"
                 script {
                     def rerunExists = sh(script: '[ -f reports/rerun.txt ] && [ -s reports/rerun.txt ]', returnStatus: true) == 0
                     if(rerunExists) {
